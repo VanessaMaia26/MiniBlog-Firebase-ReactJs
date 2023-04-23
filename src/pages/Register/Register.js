@@ -1,9 +1,8 @@
 import userEvent from '@testing-library/user-event';
 import { useAuthetication } from '../../hooks/useAuthentication';
+import { useState, useEffect } from 'react';
 
 import styles from './Register.module.css';
-
-import { useState, useEffect } from 'react';
 
 const Register = () => {
   const [displayName, setDisplayName] = useState("");
@@ -23,12 +22,12 @@ const Register = () => {
       displayName,
       email,
       password
-    }
+    };
 
     if(password !== confirmPassword) {
       setError("As senhas precisam ser iguais!");
       return;
-    }
+    };
 
     const res = await createUser(user);
     console.log(user);
@@ -96,7 +95,7 @@ const Register = () => {
           {error && <p className='error'>{error}</p>}
         </form>
     </div>          
-  )
-}
+  );
+};
 
-export default Register
+export default Register;
